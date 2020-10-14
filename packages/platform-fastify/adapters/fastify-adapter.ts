@@ -262,7 +262,7 @@ export class FastifyAdapter<
     }
     return (path: string, callback: Function) => {
       const re = pathToRegexp(path);
-      const normalizedPath = path === '/*' ? '' : path;
+      const normalizedPath = path.substring(1, path.length - 1);
 
       this.instance.use(
         normalizedPath,
